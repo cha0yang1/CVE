@@ -29,7 +29,7 @@ We Click sub_428138
 <!-- 这是一张图片，ocr 内容为： -->
 ![](https://cdn.nlark.com/yuque/0/2026/png/58401686/1770468976993-307b3831-f597-49fb-a7b1-91218590b884.png)
 
-There have Command inject.
+There have Command injection.
 
 # POC
 ```plain

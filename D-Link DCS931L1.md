@@ -1,5 +1,5 @@
 # D-Link DCS931L  Command Execution
-Affected Product: D-Link DCS930L
+Affected Product: D-Link DCS931L
 
 Affected Firmware Versions: v1.0.0-v1.13.0
 
